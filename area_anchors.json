@@ -1,0 +1,293 @@
+{
+    "Route 204": {
+        "anchors": {
+            "South": 16,
+            "North": 8
+        }
+    },
+    "Route 205": {
+        "anchors": {
+            "South": 18,
+            "North": 18
+        }
+    },
+    "Route 206": {
+        "anchors": {
+            "Main Area": 16,
+            "Cycling Road": 0
+        }
+    },
+    "Route 210": {
+        "anchors": {
+            "South": 14,
+            "North": 22,
+            "Cafe Cabin": 0
+        }
+    },
+    "Route 211": {
+        "anchors": {
+            "West": 8,
+            "East": 14
+        }
+    },
+    "Route 212": {
+        "anchors": {
+            "North": 22,
+            "South": 22
+        }
+    },
+    "Battle Park": {
+        "anchors": {
+            "Main Area": 0,
+            "Battle Tower": 0
+        }
+    },
+    "Canalave City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Eterna City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Eterna Galactic Building": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "4F": 0,
+            "Rotom Room": 0
+        }
+    },
+    "Fuego Ironworks": {
+        "anchors": {
+            "Main Area": 20,
+            "Inside": 0
+        }
+    },
+    "Galactic Warehouse": {
+        "anchors": {
+            "Entrance": 0,
+            "B1F": 0,
+            "1F": 0,
+            "2F": 0,
+            "3F": 0
+        }
+    },
+    "Great Marsh": {
+        "anchors": {
+            "Area 1": 14,
+            "Area 2": 14,
+            "Area 3": 14,
+            "Area 4": 14,
+            "Area 5": 6,
+            "Area 6": 14,
+            "Daily Binocular Pkmn": 2,
+            "Daily Binocular Pkmn - After Nat. Dex": 2
+        }
+    },
+    "Hearthome City": {
+        "anchors": {
+            "Main Area": 2,
+            "Gym": 0
+        }
+    },
+    "Hotel Grand Lake ": {
+        "anchors": {
+            "Main Area": 0,
+            "Seven Stars Hotel": 0
+        }
+    },
+    "Iron Island": {
+        "anchors": {
+            "Outside": 8,
+            "1F": 2,
+            "B1F Left Cave": 2,
+            "B1F Right Cave": 2,
+            "B2F Left Cave": 3,
+            "B2F Right Cave": 2,
+            "B3F": 2
+        }
+    },
+    "Jubilife City": {
+        "anchors": {
+            "Main Area": 0,
+            "Trainer School": 0,
+            "TV Station": 0
+        }
+    },
+    "Lake Acuity": {
+        "anchors": {
+            "Main Area": 18,
+            "Cave": 2
+        }
+    },
+    "Lake Valor": {
+        "anchors": {
+            "Main Area": 18,
+            "Cave": 2
+        }
+    },
+    "Lake Verity": {
+        "anchors": {
+            "Before Galactic": 15,
+            "After Galactic": 14,
+            "Cave": 0
+        }
+    },
+    "Lost Tower": {
+        "anchors": {
+            "1F": 6,
+            "2F": 6,
+            "3F": 6,
+            "4F": 6,
+            "5F": 6
+        }
+    },
+    "Mt. Coronet": {
+        "anchors": {
+            "Route 207 Entrance": 14,
+            "Route 211 Entrance": 6,
+            "Route 216 Entrance": 2,
+            "2F": 2,
+            "3F": 2,
+            "4F": 10,
+            "5F": 2,
+            "6F": 2,
+            "7F": 2,
+            "B1F": 10,
+            "Snow Area": 8,
+            "Top": 8,
+            "Top Cave": 2
+        }
+    },
+    "Old Chateau": {
+        "anchors": {
+            "Entrance": 2,
+            "1F": 2,
+            "2F": 2,
+            "2F 1st Room": 2,
+            "2F 2nd Room": 4,
+            "2F 3rd Room": 2,
+            "2F 4th Room": 2,
+            "2F 5th Room": 2,
+            "2F Rightmost Room": 2,
+            "Dining Room": 2
+        }
+    },
+    "Oreburgh City": {
+        "anchors": {
+            "Main Area": 1,
+            "Gym": 0
+        }
+    },
+    "Oreburgh Gate": {
+        "anchors": {
+            "1F": 2,
+            "B1F": 10
+        }
+    },
+    "Oreburgh Mine": {
+        "anchors": {
+            "1F": 2,
+            "B1F": 2
+        }
+    },
+    "Pastoria City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Pok\u00e9mon League": {
+        "anchors": {
+            "Main Area": 8,
+            "League": 0
+        }
+    },
+    "Ruins Maniac's Cave": {
+        "anchors": {
+            "Main Area": 2,
+            "Expansion": 2
+        }
+    },
+    "Snowpoint City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0
+        }
+    },
+    "Snowpoint Temple": {
+        "anchors": {
+            "1F": 2,
+            "B1F": 2,
+            "B2F": 2,
+            "B3F": 2,
+            "B4F": 2,
+            "B5F": 4
+        }
+    },
+    "Stark Mountain": {
+        "anchors": {
+            "Main Area": 8,
+            "Entrance": 2,
+            "Interior": 2,
+            "Deepest": 2
+        }
+    },
+    "Sunyshore City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Turnback Cave": {
+        "anchors": {
+            "Between Entrance and 1st Pillar": 2,
+            "Between 1st and 2nd Pillars": 2,
+            "Between 2nd and 3rd Pillars": 2,
+            "Past 3rd Pillar Room": 2
+        }
+    },
+    "Valley Windworks": {
+        "anchors": {
+            "Main Area": 22,
+            "Inside": 0
+        }
+    },
+    "Veilstone City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0
+        }
+    },
+    "Veilstone Galactic Building": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "4F": 0,
+            "Laboratory": 0
+        }
+    },
+    "Victory Road": {
+        "anchors": {
+            "1F": 2,
+            "2F": 2,
+            "B1F": 10,
+            "Nat Dex Area": 2,
+            "Nat Dex Area B1F": 10,
+            "Nat Dex Exit Area": 2
+        }
+    },
+    "Wayward Cave": {
+        "anchors": {
+            "1F": 2,
+            "B1F": 2
+        }
+    }
+}
