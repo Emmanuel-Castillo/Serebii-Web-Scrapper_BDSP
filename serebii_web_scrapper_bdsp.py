@@ -266,11 +266,11 @@ def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
                     
                     if table_index + 1 < table_count:
                         game_version = "Pokémon Shining Pearl"
-                        start = i * NUM_INFO_ROWS_PER_POKEMON + 1
-                        excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON+ 1
+                        # start = i * NUM_INFO_ROWS_PER_POKEMON + 1
+                        # excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON+ 1
                         # print("start:", start, "excludedEnd:", excludedEnd)
-                        rows = tables[table_index + 1].find_all("tr")
-                        processPokemonRows(rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
+                        next_table_rows = tables[table_index + 1].find_all("tr")
+                        processPokemonRows(next_table_rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
                 
                 table_index += 2
                 curr_anchor_table_index += 2
@@ -280,7 +280,101 @@ def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
     pass
 
 def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
-    pass
+    # {
+    #         "name": "Starly",
+    #         "encounter_method": {
+    #             "method": "Random Encounter",
+    #             "time_of_day": "Anytime",
+    #             "requisite": "None",
+    #             "rarity": "Common"
+    #         },
+    #         "game_version": "Both",
+    #         "location": {
+    #             "name": "Route 201",
+    #             "area_anchor": "Main Area"
+    #         },
+    #         "type": [
+    #             "Normal",
+    #             "Flying"
+    #         ],
+    #         "chance": "50%",
+    #         "level": "2 - 3"
+    #     }
+    tables.pop(0)
+    table_count = len(tables)
+    table_index = 0
+
+    curr_anchor_index = 0
+    curr_anchor_table_index = 0
+    curr_anchor = anchor_pairs[curr_anchor_index]
+
+    # tables = soup.find_all("table", class_=re.compile(r"\b(?:extra)?dextable\b"))
+    encounter_method = {}
+    encounter_requisite = ""
+    while table_index < table_count:
+        table = tables[table_index]
+        if table_index % 3 == 0:
+            h = table.find("h4")
+            # print("Fake", h.text)
+            encounter_requisite = h.text
+            table_index += 1
+            continue
+
+        # Determine anchor limit & anchor
+        anchor = "Main Area" # Default value
+        if len(curr_anchor) > 0:
+            # print(curr_anchor)
+            anchor_name, anchor_limit = curr_anchor
+            # print("anchor name: ", anchor_name, "anchor limit: ", anchor_limit)
+            if curr_anchor_table_index < anchor_limit:
+                anchor = anchor_name
+            else:
+                curr_anchor_index += 1
+                curr_anchor_table_index = 0
+                curr_anchor = anchor_pairs[curr_anchor_index]
+                anchor_name, new_anchor_limit = curr_anchor
+                anchor = anchor_name
+
+        # If table after getting encounter_requisite
+        if (table_index - 1) % 3 == 0:
+
+
+            rows = table.find_all("tr")
+            # print(rows[0])
+            encounter_method = grabEncounterMethod(rows[0])
+            encounter_method["requisite"] = encounter_requisite
+
+            rows = rows[3:]
+
+            # Find number of pokemon rows
+            NUM_INFO_ROWS_PER_POKEMON = 6
+            NUM_POKEMON_ROWS = len(rows) // NUM_INFO_ROWS_PER_POKEMON
+
+            for i in range(NUM_POKEMON_ROWS):
+                game_version = "Brilliant Diamond"
+                pokemon_row_list = []
+                start = i * NUM_INFO_ROWS_PER_POKEMON
+                excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON
+                # print("start:", start, "excludedEnd:", excludedEnd)
+                processPokemonRows(rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
+                # if table_index == 1:
+                    # print(pokemon_row_list)
+                if table_index + 1 < table_count:
+                    game_version = "Shining Pearl"
+                    next_table_rows = tables[table_index + 1].find_all("tr")
+                    start = i * NUM_INFO_ROWS_PER_POKEMON + 1
+                    excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON  + 1
+                    # print("start:", start, "excludedEnd:", excludedEnd)
+                    processPokemonRows(next_table_rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
+
+            table_index += 2
+            curr_anchor_table_index += 2
+        else:
+            table_index += 1
+            curr_anchor_table_index += 1
+
+    # print(anchor_pairs)
+    
 def processSolaceonRuinsTables(anchor_pairs, pokemon_in_table_list, key):
     # print(anchor_pairs)
     for anchor_pair in anchor_pairs:
@@ -360,7 +454,7 @@ with open("area_anchors.json", "r") as f:
     area_anctabs = json.load(f)
 
 # locations_endpoint_dict = {
-#     "Solaceon Ruins" : "/pokearth/sinnoh/solaceonruins.shtml"
+#     "Grand Underground" : "/pokearth/sinnoh/grandunderground.shtml"
 # }       
 
 # key = Official location name

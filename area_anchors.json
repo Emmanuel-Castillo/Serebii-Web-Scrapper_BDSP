@@ -78,6 +78,29 @@
             "3F": 0
         }
     },
+    "Grand Underground": {
+        "anchors": {
+            "Main Area": 0,
+            "Spacious Cave": 14,
+            "Grassland Cave": 12,
+            "Fountainspring Cave": 14,
+            "Rocky Cave": 10,
+            "Volcanic Cave": 10,
+            "Swampy Cave": 14,
+            "Dazzling Cave": 12,
+            "Whiteout Cave": 12,
+            "Icy Cave": 10,
+            "Riverbank Cave": 14,
+            "Sandsear Cave": 10,
+            "Still-Water Cavern": 14,
+            "Sunlit Cavern": 12,
+            "Big Bluff Cavern": 10,
+            "Stargleam Cavern": 12,
+            "Glacial Cavern": 10,
+            "Bogsunk Cavern": 14,
+            "Typhlo Cavern": 10
+        }
+    },
     "Great Marsh": {
         "anchors": {
             "Area 1": 14,
@@ -233,26 +256,26 @@
     },
     "Solaceon Ruins": {
         "anchors": {
-            "Entrance": 0,
-            "Entrace Side Chamber 1": 0,
-            "Entrance Side Chamber 2": 0,
-            "F Chamber": 0,
-            "F Chamber Side Chamber 1": 0,
-            "F Chamber Side Chamber 2": 0,
-            "R Chamber": 0,
-            "R Chamber Side Chamber 1": 0,
-            "R Chamber Side Chamber 2": 0,
-            "I Chamber": 0,
-            "I Chamber Side Chamber 1": 0,
-            "I Chamber Side Chamber 2": 0,
-            "E Chamber": 0,
-            "E Chamber Side Chamber 1": 0,
-            "E Chamber Side Chamber 2": 0,
-            "N Chamber": 0,
-            "N Chamber Side Chamber 1": 0,
-            "N Chamber Side Chamber 2": 0,
-            "D Chamber": 0,
-            "Ruin Extension": 0
+            "Entrance": 2,
+            "Entrace Side Chamber 1": 2,
+            "Entrance Side Chamber 2": 2,
+            "F Chamber": 2,
+            "F Chamber Side Chamber 1": 2,
+            "F Chamber Side Chamber 2": 2,
+            "R Chamber": 2,
+            "R Chamber Side Chamber 1": 2,
+            "R Chamber Side Chamber 2": 2,
+            "I Chamber": 2,
+            "I Chamber Side Chamber 1": 2,
+            "I Chamber Side Chamber 2": 2,
+            "E Chamber": 2,
+            "E Chamber Side Chamber 1": 2,
+            "E Chamber Side Chamber 2": 2,
+            "N Chamber": 2,
+            "N Chamber Side Chamber 1": 2,
+            "N Chamber Side Chamber 2": 2,
+            "D Chamber": 2,
+            "Ruin Extension": 2
         }
     },
     "Stark Mountain": {
