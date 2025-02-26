@@ -22697,7 +22697,7 @@
     ],
     "Full Moon Island": [],
     "Galactic Warehouse": [],
-    "Grand Underground": {},
+    "Grand Underground": [],
     "Great Marsh": [
         {
             "name": "Wooper",
@@ -36531,7 +36531,388 @@
             "level": "70 - 70"
         }
     ],
-    "Solaceon Ruins": {},
+    "Solaceon Ruins": [
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "Entrance"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "Entrace Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "Entrance Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "F Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "F Chamber Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "F Chamber Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "R Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "R Chamber Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "R Chamber Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "I Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "I Chamber Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "I Chamber Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "E Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "E Chamber Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "E Chamber Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "N Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "N Chamber Side Chamber 1"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "N Chamber Side Chamber 2"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "D Chamber"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        },
+        {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Solaceon Ruins",
+                "area_anchor": "Ruin Extension"
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        }
+    ],
     "Solaceon Town": [],
     "Spear Pillar": [
         {
@@ -37644,7 +38025,608 @@
         }
     ],
     "Survival Area": [],
-    "Trophy Garden": {},
+    "Trophy Garden": [
+        {
+            "name": "Roselia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Morning",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Grass",
+                "Poison"
+            ],
+            "chance": "30%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Pichu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Morning",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "30%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Staravia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Morning",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Normal",
+                "Flying"
+            ],
+            "chance": "20%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Pikachu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Morning",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "10%",
+            "level": "18 - 18"
+        },
+        {
+            "name": "Kricketune",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Morning",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Bug"
+            ],
+            "chance": "10%",
+            "level": "17 - 17"
+        },
+        {
+            "name": "Staravia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Day",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Normal",
+                "Flying"
+            ],
+            "chance": "40%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Roselia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Day",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Grass",
+                "Poison"
+            ],
+            "chance": "30%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Pikachu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Day",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "10%",
+            "level": "18 - 18"
+        },
+        {
+            "name": "Pichu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Day",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "10%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Kricketune",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Day",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Bug"
+            ],
+            "chance": "10%",
+            "level": "17 - 17"
+        },
+        {
+            "name": "Roselia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Night",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Grass",
+                "Poison"
+            ],
+            "chance": "30%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Kricketune",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Night",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Bug"
+            ],
+            "chance": "30%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Staravia",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Night",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Normal",
+                "Flying"
+            ],
+            "chance": "20%",
+            "level": "16 - 17"
+        },
+        {
+            "name": "Pikachu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Night",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "10%",
+            "level": "18 - 18"
+        },
+        {
+            "name": "Pichu",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Night",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Main Area"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "10%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Clefairy",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Jigglypuff",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal",
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Meowth",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Chansey",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Eevee",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Porygon",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 16"
+        },
+        {
+            "name": "Cleffa",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Igglybuff",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal",
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Marill",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Water",
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Azurill",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal",
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Plusle",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Minun",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Electric"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Castform",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Bonsly",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Rock"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Mime Jr.",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Psychic",
+                "Fairy"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        },
+        {
+            "name": "Happiny",
+            "encounter_method": {
+                "method": "Encounters",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": "Trophy Garden",
+                "area_anchor": "Daily Pokemon"
+            },
+            "type": [
+                "Normal"
+            ],
+            "chance": "5%",
+            "level": "16 - 18"
+        }
+    ],
     "Turnback Cave": [
         {
             "name": "Bronzong",

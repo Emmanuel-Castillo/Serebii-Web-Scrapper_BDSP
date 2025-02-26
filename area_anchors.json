@@ -231,6 +231,30 @@
             "B5F": 4
         }
     },
+    "Solaceon Ruins": {
+        "anchors": {
+            "Entrance": 0,
+            "Entrace Side Chamber 1": 0,
+            "Entrance Side Chamber 2": 0,
+            "F Chamber": 0,
+            "F Chamber Side Chamber 1": 0,
+            "F Chamber Side Chamber 2": 0,
+            "R Chamber": 0,
+            "R Chamber Side Chamber 1": 0,
+            "R Chamber Side Chamber 2": 0,
+            "I Chamber": 0,
+            "I Chamber Side Chamber 1": 0,
+            "I Chamber Side Chamber 2": 0,
+            "E Chamber": 0,
+            "E Chamber Side Chamber 1": 0,
+            "E Chamber Side Chamber 2": 0,
+            "N Chamber": 0,
+            "N Chamber Side Chamber 1": 0,
+            "N Chamber Side Chamber 2": 0,
+            "D Chamber": 0,
+            "Ruin Extension": 0
+        }
+    },
     "Stark Mountain": {
         "anchors": {
             "Main Area": 8,
@@ -251,6 +275,12 @@
             "Between 1st and 2nd Pillars": 2,
             "Between 2nd and 3rd Pillars": 2,
             "Past 3rd Pillar Room": 2
+        }
+    },
+    "Trophy Garden": {
+        "anchors": {
+            "Main Area": 6,
+            "Daily Pokemon": 2
         }
     },
     "Valley Windworks": {

@@ -21,10 +21,10 @@ def checkIfPokemonInBothVersions(p0, pokemon_list):
             return True
     return False
 
-def grabEncounterMethod(table):
+def grabEncounterMethod(row):
     encounter_method = {}
-    extra_row = table.find_all("tr")[0]
-    h = extra_row.find(re.compile("^h"))
+    # extra_row = table.find_all("tr")[0]
+    h = row.find(re.compile("^h"))
     encounter_method["method"] = h.text
     encounter_method["time_of_day"] = "Anytime"
     encounter_method["requisite"] = "None"
@@ -41,8 +41,8 @@ def grabEncounterMethod(table):
             encounter_method["requisite"] = second_word
         elif second_word in RARITY:
             encounter_method["rarity"] = second_word
-        else:
-            print(second_word)
+        # else:
+            # print(second_word)
 
     return encounter_method
 
@@ -95,16 +95,36 @@ def grabPokemonLevels(row, pokemon_row_list):
         pokemon_row_list[i]["level"] = cell.text
         # print("Levels: ", cell.text)
 
-def processRow(row, pokemon_in_table_list, encounter_method, key, anchor):
-    pass
+def processPokemonRows(rows, pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor):
+    for index, row in enumerate(rows):
+
+        # Grabbing name
+        if index == 1:
+            grabPokemonNames(row, game_version, encounter_method, key, pokemon_row_list, anchor)
+        # Grabbing type
+        elif index == 2:
+            grabPokemonTypes(row, pokemon_row_list)
+
+        # Grabbing chance
+        elif index == 3:
+            grabPokemonChance(row, pokemon_row_list)
+
+        # Grabbing level
+        elif index == 5:
+            grabPokemonLevels(row, pokemon_row_list)
+
+    # Add new pokemon_row_list to pokemon_list
+    for pokemon in pokemon_row_list:
+        # Check if pokemon already in locations_dict[location], and has the same data (except game version)
+        # If so, do not append pokemon and modify pokemon in locations_dict[location].game_version = "Both"
+        if not checkIfPokemonInBothVersions(pokemon, pokemon_in_table_list):
+            pokemon_in_table_list.append(pokemon)
+            # print(pokemon["name"] , pokemon["game_version"])
+        # else:
+            # print(pokemon["name"], " is already in the other game!")
 
 # Table should start at row that collect game_version
 def processTable(rows, pokemon_in_table_list, encounter_method, key, anchor):
-
-    NUMBER_ROWS_POKEMON_DETAILS = 6
-    # Grab # rows of pokemon
-    num_rows_pokemon = len(rows[1:]) / NUMBER_ROWS_POKEMON_DETAILS
-
     game_version = ""
     pokemon_row_list = []
     for index, row in enumerate(rows):
@@ -139,11 +159,10 @@ def processTable(rows, pokemon_in_table_list, encounter_method, key, anchor):
         if not checkIfPokemonInBothVersions(pokemon, pokemon_in_table_list):
             pokemon_in_table_list.append(pokemon)
 
-def processGiftTable(table, encounter_method, key, pokemon_in_table_list, anchor):
-    rows = table.find_all("tr")
+def processGiftTable(rows, encounter_method, key, pokemon_in_table_list, anchor):
     game_version = "Both"
     pokemon_row_list = []
-    for index, row in enumerate(rows[1:]):
+    for index, row in enumerate(rows):
 
         # Grabbing name
         # Start assigning size of pokemon list per row
@@ -173,6 +192,121 @@ def processGiftTable(table, encounter_method, key, pokemon_in_table_list, anchor
     for pokemon in pokemon_row_list:
         pokemon_in_table_list.append(pokemon)
 
+def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
+    table_count = len(tables)
+    table_index = 0
+
+    # print(table_count, "tables")
+    # print(len(anchor_pairs), "anchors")
+
+    curr_anchor_index = 0
+    curr_anchor_table_index = 0
+    curr_anchor = anchor_pairs[curr_anchor_index]
+
+    while table_index < table_count:
+        table = tables[table_index]
+
+        if table_index == 6:
+            # print("Fake table")
+            table_index += 1
+            continue
+        # Determine anchor limit & anchor
+        anchor = "Main Area" # Default value
+        if len(curr_anchor) > 0:
+            # print(curr_anchor)
+            anchor_name, anchor_limit = curr_anchor
+            # print("anchor name: ", anchor_name, "anchor limit: ", anchor_limit)
+            if curr_anchor_table_index < anchor_limit:
+                anchor = anchor_name
+            else:
+                curr_anchor_index += 1
+                curr_anchor_table_index = 0
+                curr_anchor = anchor_pairs[curr_anchor_index]
+                anchor_name, new_anchor_limit = curr_anchor
+                anchor = anchor_name
+
+        # print(anchor)
+
+        # Grab rows
+        rows = table.find_all("tr")
+
+        # Check if table has class extradextable
+        # If so, process itself (+ grab encounter_method) and the next table
+        if 'extradextable' in table.get('class', []) and table_index < 6:
+            encounter_method = grabEncounterMethod(rows[0])
+            processTable(rows[1:], pokemon_in_table_list, encounter_method, key, anchor)
+
+            if table_index + 1 < table_count:
+                rows = tables[table_index + 1].find_all("tr")
+                processTable(rows, pokemon_in_table_list, encounter_method, key, anchor)
+            
+            table_index += 2
+            curr_anchor_table_index += 2
+
+        else:
+            # Remove extra row
+            if table_index == 7:
+                encounter_method = grabEncounterMethod(rows[0])
+                rows = rows[2:]
+
+                # Find number of pokemon rows
+                NUM_INFO_ROWS_PER_POKEMON = 6
+                NUM_POKEMON_ROWS = len(rows) // NUM_INFO_ROWS_PER_POKEMON
+                # print(NUM_POKEMON_ROWS, "rows of pokemon in table")
+
+
+                for i in range(NUM_POKEMON_ROWS):
+                    # print(i, "ROW*******************")
+                    game_version = "Pokémon Brilliant Diamond"
+                    pokemon_row_list = []
+                    start = i * NUM_INFO_ROWS_PER_POKEMON + 1
+                    excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON  + 1
+                    # print("start:", start, "excludedEnd:", excludedEnd)
+                    processPokemonRows(rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
+                    
+                    if table_index + 1 < table_count:
+                        game_version = "Pokémon Shining Pearl"
+                        start = i * NUM_INFO_ROWS_PER_POKEMON + 1
+                        excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON+ 1
+                        # print("start:", start, "excludedEnd:", excludedEnd)
+                        rows = tables[table_index + 1].find_all("tr")
+                        processPokemonRows(rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
+                
+                table_index += 2
+                curr_anchor_table_index += 2
+            else:
+                table_index += 1
+                curr_anchor_table_index += 1
+    pass
+
+def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
+    pass
+def processSolaceonRuinsTables(anchor_pairs, pokemon_in_table_list, key):
+    # print(anchor_pairs)
+    for anchor_pair in anchor_pairs:
+        anchor_name, anchor_value = anchor_pair
+
+        pokemon = {
+            "name": "Unown",
+            "encounter_method": {
+                "method": "Random Encounter",
+                "time_of_day": "Anytime",
+                "requisite": "None",
+                "rarity": "Common"
+            },
+            "game_version": "Both",
+            "location": {
+                "name": key,
+                "area_anchor": anchor_name
+            },
+            "type": [
+                "Psychic"
+            ],
+            "chance": "100%",
+            "level": "14 - 25"
+        }
+
+        pokemon_in_table_list.append(pokemon)
 #
 #
 #
@@ -223,19 +357,17 @@ area_anctabs = {}
 # print(pokemon_list)
 # Save pokemon_list as JSON file
 with open("area_anchors.json", "r") as f:
-    area_anctabs = json.load(f)       
+    area_anctabs = json.load(f)
+
+# locations_endpoint_dict = {
+#     "Solaceon Ruins" : "/pokearth/sinnoh/solaceonruins.shtml"
+# }       
 
 # key = Official location name
 # value = Endpoint to append to url
 for key, value in locations_endpoint_dict.items():
 
     print(value)
-    
-    # Skipping Grand Underground cuz fuckkk me
-    # Skipping Solaceon Runs cuz fuccckkk me again
-    if value == "/pokearth/sinnoh/grandunderground.shtml" or value == "/pokearth/sinnoh/solaceonruins.shtml" or value == "/pokearth/sinnoh/trophygarden.shtml":
-        print("Skipping ", value)
-        continue
 
     area_anchors = {}
     if key in area_anctabs.keys():
@@ -301,49 +433,58 @@ for key, value in locations_endpoint_dict.items():
         curr_anchor = anchor_pairs[curr_anchor_index]
         # print(curr_anchor)
         #       ('South', 16)
-    
-    while table_index < table_count:
-        table = tables[table_index]
 
-        # Determine anchor limit & anchor
-        anchor = "Main Area" # Default value
+    # Skipping Grand Underground cuz fuckkk me
+    # Skipping Solaceon Runs cuz fuccckkk me again
+    if value == "/pokearth/sinnoh/trophygarden.shtml":
+        processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list)
+    elif value == "/pokearth/sinnoh/grandunderground.shtml":
+        processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list)
+    elif value == "/pokearth/sinnoh/solaceonruins.shtml":
+        processSolaceonRuinsTables(anchor_pairs, pokemon_in_table_list, key)
+    else:
+        while table_index < table_count:
+            table = tables[table_index]
 
-        if len(curr_anchor) > 0:
-            # print(curr_anchor)
-            anchor_name, anchor_limit = curr_anchor
-            # print("anchor name: ", anchor_name, "anchor limit: ", anchor_limit)
-            if curr_anchor_table_index < anchor_limit:
-                anchor = anchor_name
-            else:
-                curr_anchor_index += 1
-                curr_anchor_table_index = 0
-                curr_anchor = anchor_pairs[curr_anchor_index]
-                anchor_name, new_anchor_limit = curr_anchor
-                anchor = anchor_name
+            # Determine anchor limit & anchor
+            anchor = "Main Area" # Default value
 
-        # print(anchor)
+            if len(curr_anchor) > 0:
+                # print(curr_anchor)
+                anchor_name, anchor_limit = curr_anchor
+                # print("anchor name: ", anchor_name, "anchor limit: ", anchor_limit)
+                if curr_anchor_table_index < anchor_limit:
+                    anchor = anchor_name
+                else:
+                    curr_anchor_index += 1
+                    curr_anchor_table_index = 0
+                    curr_anchor = anchor_pairs[curr_anchor_index]
+                    anchor_name, new_anchor_limit = curr_anchor
+                    anchor = anchor_name
 
-        # Check if table has class extradextable
-        # If so, process itself (+ grab encounter_method) and the next table
-        if 'extradextable' in table.get('class', []):
-            encounter_method = grabEncounterMethod(table)
+            # print(anchor)
+
             rows = table.find_all("tr")
-            processTable(rows[1:], pokemon_in_table_list, encounter_method, key, anchor)
+            # Check if table has class extradextable
+            # If so, process itself (+ grab encounter_method) and the next table
+            if 'extradextable' in table.get('class', []):
+                encounter_method = grabEncounterMethod(rows[0])
+                processTable(rows[1:], pokemon_in_table_list, encounter_method, key, anchor)
 
-            if table_index + 1 < table_count:
-                rows = tables[table_index + 1].find_all("tr")
-                processTable(rows, pokemon_in_table_list, encounter_method, key, anchor)
-            
-            table_index += 2
-            curr_anchor_table_index += 2
-        else:
-            # Otherwise, check if gift pokemon table
-            encounter_method = grabEncounterMethod(table)
-            if encounter_method["method"] == "Gift Pokémon":
-                processGiftTable(table, encounter_method, key, pokemon_in_table_list, anchor)
+                if table_index + 1 < table_count:
+                    rows = tables[table_index + 1].find_all("tr")
+                    processTable(rows, pokemon_in_table_list, encounter_method, key, anchor)
+                
+                table_index += 2
+                curr_anchor_table_index += 2
+            else:
+                # Otherwise, check if gift pokemon table
+                encounter_method = grabEncounterMethod(rows[0])
+                if encounter_method["method"] == "Gift Pokémon":
+                    processGiftTable(rows[1:], encounter_method, key, pokemon_in_table_list, anchor)
 
-            table_index += 1
-            curr_anchor_table_index += 1
+                table_index += 1
+                curr_anchor_table_index += 1
 
     # Add pokemon_list to locations_dict
     pokemon_in_location_dict[key] = pokemon_in_table_list
