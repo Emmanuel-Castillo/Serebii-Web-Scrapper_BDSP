@@ -5,15 +5,38 @@ import re
 
 TIME_OF_DAY = ["Morning","Day","Evening","Night"]
 ITEM_NEEDED = ["Old Rod","Good Rod","Super Rod"]
-RARITY = ["Rare","Very Rare"]
+# RARITY = ["Rare","Very Rare"]
+
+# rvId = Default in Room table PokemonRegionalVariants
+RV_ID = 1
 
 # JSON file to store all available Pokemon
 pokemon_in_location_dict = {}
 
+# Structure for each encounter entry
+# pokemon = {
+#         "pokemon" : {
+#             "name": "Unown",
+#             "type1": "Psychic",
+#             "type2": None
+#         },
+#         "encounter_method": {
+#             "method": "Random Encounter",
+#             "time_of_day": "Anytime",
+#             "requisite": None,
+#             "chance" : "100%"
+#         },
+#         "location": {
+#             "name": key,
+#             "area_anchor": anchor_name,
+#             "region": "Sinnoh",
+#             "game_version": "BDSP"
+#         },
+#     }
 def checkIfPokemonInBothVersions(p0, pokemon_list):
     for p1 in pokemon_list:
-        if (p0["name"] == p1["name"]) and (p0["encounter_method"] == p1["encounter_method"]) and (p0["chance"] == p1["chance"]) and (p0["location"] == p1["location"]):
-            p1["game_version"] = "Both"
+        if (p0["pokemon"] == p1["pokemon"]) and (p0["encounter_method"] == p1["encounter_method"]) and (p0["location"]["name"] == p1["location"]["name"]) and (p0["location"]["area_anchor"] == p1["location"]["area_anchor"]) and (p0["location"]["region"] == p1["location"]["region"]):
+            p1["location"]["game_version"] = [34, 35]
 
             # if (p0["location"] == p1["location"]) and (p0["location"] == "Iron Island"):
             #     print(p0, p1)
@@ -27,8 +50,9 @@ def grabEncounterMethod(row):
     h = row.find(re.compile("^h"))
     encounter_method["method"] = h.text
     encounter_method["time_of_day"] = "Anytime"
-    encounter_method["requisite"] = "None"
-    encounter_method["rarity"] = "Common"
+    encounter_method["requisite"] = None
+    encounter_method["item_needed"] = None
+    # encounter_method["rarity"] = "Common"
 
     # check if table includes time of day by splitting
     split_words = encounter_method["method"].split(' - ')
@@ -38,9 +62,9 @@ def grabEncounterMethod(row):
         if second_word in TIME_OF_DAY:
             encounter_method["time_of_day"] = second_word
         elif second_word in ITEM_NEEDED:
-            encounter_method["requisite"] = second_word
-        elif second_word in RARITY:
-            encounter_method["rarity"] = second_word
+            encounter_method["item_needed"] = second_word
+        # elif second_word in RARITY:
+        #     encounter_method["rarity"] = second_word
         # else:
             # print(second_word)
 
@@ -49,23 +73,36 @@ def grabEncounterMethod(row):
     # print("Encounter method: ", encounter_method)
     # print("Time of day: " + time_of_day)
 
+def grabPokemonNatDexId(row, pokemon_row_list):
+    cells = row.find_all("td")
+
+    # Clear and extend the existing list instead of replacing it
+    pokemon_row_list.clear()  
+    pokemon_row_list.extend([{"pokemon":{}} for _ in range(len(cells))])
+    
+    for i, cell in enumerate(cells):
+        img = cell.find("img")
+        img_src = img.get("src")
+        img_src_split_words = re.split(r"[/.-]", img_src)
+        nat_dex_id = img_src_split_words[4]
+        pokemon_row_list[i]["pokemon"]["national_dex_id"] = int(nat_dex_id)
+        pokemon_row_list[i]["pokemon"]["rvId"] = RV_ID
+
+
 def grabPokemonNames(row, game_version, encounter_method, key, pokemon_row_list, anchor):
     # Grabbing name
     # Start assigning size of pokemon list per row
     # As well as initialzing pokemon data appropriately
     cells = row.find_all("td")
-
-    # Clear and extend the existing list instead of replacing it
-    pokemon_row_list.clear()  
-    pokemon_row_list.extend([{} for _ in range(len(cells))])
     
     for i, cell in enumerate(cells):
-        pokemon_row_list[i]["name"] = cell.text
+        pokemon_row_list[i]["pokemon"]["name"] = cell.text
         pokemon_row_list[i]["encounter_method"] = encounter_method
-        pokemon_row_list[i]["game_version"] = game_version
         pokemon_row_list[i]["location"] = {
             "name" : key,
-            "area_anchor" : anchor
+            "area_anchor" : anchor,
+            "region": "Sinnoh",
+            "game_version" : game_version,
         }
         # print("Pokemon: ", cell.text)
 
@@ -73,20 +110,23 @@ def grabPokemonTypes(row, pokemon_row_list):
     cells = row.find_all("td")
     for i, cell in enumerate(cells):
         types = cell.find_all("a")
-        type_list = []
-        for type in types:
+        pokemon_row_list[i]["pokemon"]["type1"] = None
+        pokemon_row_list[i]["pokemon"]["type2"] = None
+        for j, type in enumerate(types):
             img = type.find("img")
             img_src = img.get("src")
             type_name = re.split(r"[/.]", img_src)
-            type_list.append(type_name[3].title())
-            # print("Type: ", type_name[3].title())
 
-        pokemon_row_list[i]["type"] = type_list
+            if j == 0:
+                pokemon_row_list[i]["pokemon"]["type1"] = type_name[3].title()
+            elif j == 1:
+                pokemon_row_list[i]["pokemon"]["type2"] = type_name[3].title()
+
 
 def grabPokemonChance(row, pokemon_row_list):
     cells = row.find_all("td")
     for i, cell in enumerate(cells):
-        pokemon_row_list[i]["chance"] = cell.text
+        pokemon_row_list[i]["encounter_method"]["chance"] = cell.text
         # print("Chance: ", cell.text)
 
 def grabPokemonLevels(row, pokemon_row_list):
@@ -98,20 +138,24 @@ def grabPokemonLevels(row, pokemon_row_list):
 def processPokemonRows(rows, pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor):
     for index, row in enumerate(rows):
 
+        # Grabbing nat_dex_id
+        if index == 0:
+            grabPokemonNatDexId(row, pokemon_row_list)
+
         # Grabbing name
         if index == 1:
             grabPokemonNames(row, game_version, encounter_method, key, pokemon_row_list, anchor)
         # Grabbing type
-        elif index == 2:
-            grabPokemonTypes(row, pokemon_row_list)
+        # elif index == 2:
+            # grabPokemonTypes(row, pokemon_row_list)
 
         # Grabbing chance
         elif index == 3:
             grabPokemonChance(row, pokemon_row_list)
 
         # Grabbing level
-        elif index == 5:
-            grabPokemonLevels(row, pokemon_row_list)
+        # elif index == 5:
+        #     grabPokemonLevels(row, pokemon_row_list)
 
     # Add new pokemon_row_list to pokemon_list
     for pokemon in pokemon_row_list:
@@ -125,7 +169,7 @@ def processPokemonRows(rows, pokemon_row_list, pokemon_in_table_list, game_versi
 
 # Table should start at row that collect game_version
 def processTable(rows, pokemon_in_table_list, encounter_method, key, anchor):
-    game_version = ""
+    game_version = []
     pokemon_row_list = []
     for index, row in enumerate(rows):
 
@@ -133,21 +177,27 @@ def processTable(rows, pokemon_in_table_list, encounter_method, key, anchor):
         if index == 0:
             cell = row.find("td")
             # print("Game version: ", cells.text)
-            game_version = cell.text
+            if cell.text == "Pokémon Brilliant Diamond":
+                game_version.append(34)
+            elif cell.text == "Pokémon Shining Pearl":
+                game_version.append(35)
+
+        elif index == 1:
+            grabPokemonNatDexId(row, pokemon_row_list)
 
         elif index == 2:
             grabPokemonNames(row, game_version, encounter_method, key, pokemon_row_list, anchor)
         # Grabbing type
-        elif index == 3:
-            grabPokemonTypes(row, pokemon_row_list)
+        # elif index == 3:
+            # grabPokemonTypes(row, pokemon_row_list)
 
         # Grabbing chance
         elif index == 4:
             grabPokemonChance(row, pokemon_row_list)
 
         # Grabbing level
-        elif index == 6:
-            grabPokemonLevels(row, pokemon_row_list)
+        # elif index == 6:
+        #     grabPokemonLevels(row, pokemon_row_list)
 
         # Print current pokemon_row_list
         # print(pokemon_row_list)
@@ -160,9 +210,12 @@ def processTable(rows, pokemon_in_table_list, encounter_method, key, anchor):
             pokemon_in_table_list.append(pokemon)
 
 def processGiftTable(rows, encounter_method, key, pokemon_in_table_list, anchor):
-    game_version = "Both"
+    game_version = [34, 35]
     pokemon_row_list = []
     for index, row in enumerate(rows):
+
+        if index == 0:
+            grabPokemonNatDexId(row, pokemon_row_list)
 
         # Grabbing name
         # Start assigning size of pokemon list per row
@@ -171,19 +224,19 @@ def processGiftTable(rows, encounter_method, key, pokemon_in_table_list, anchor)
             grabPokemonNames(row, game_version, encounter_method, key, pokemon_row_list, anchor)
 
         # Grabbing type
-        elif index == 2:
-            grabPokemonTypes(row, pokemon_row_list)
+        # elif index == 2:
+            # grabPokemonTypes(row, pokemon_row_list)
 
         # Grabbing level
-        elif index == 4:
-            grabPokemonLevels(row, pokemon_row_list)
+        # elif index == 4:
+        #     grabPokemonLevels(row, pokemon_row_list)
 
         # Grabbing requisite for each Gift Pokemon & setting chance
         elif index == 5:
             cells = row.find_all("td")
             for i, cell in enumerate(cells):
                 pokemon_row_list[i]["encounter_method"]["requisite"] = cell.text
-                pokemon_row_list[i]["chance"] = "100%"
+                pokemon_row_list[i]["encounter_method"]["chance"] = "100%"
 
     # Print current pokemon_row_list
 
@@ -257,7 +310,7 @@ def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
 
                 for i in range(NUM_POKEMON_ROWS):
                     # print(i, "ROW*******************")
-                    game_version = "Pokémon Brilliant Diamond"
+                    game_version = "BD"
                     pokemon_row_list = []
                     start = i * NUM_INFO_ROWS_PER_POKEMON + 1
                     excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON  + 1
@@ -265,7 +318,7 @@ def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
                     processPokemonRows(rows[start: excludedEnd], pokemon_row_list, pokemon_in_table_list, game_version, encounter_method, key, anchor)
                     
                     if table_index + 1 < table_count:
-                        game_version = "Pokémon Shining Pearl"
+                        game_version = "SP"
                         # start = i * NUM_INFO_ROWS_PER_POKEMON + 1
                         # excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON+ 1
                         # print("start:", start, "excludedEnd:", excludedEnd)
@@ -280,25 +333,23 @@ def processTrophyGardenTables(tables, anchor_pairs, pokemon_in_table_list):
     pass
 
 def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
-    # {
-    #         "name": "Starly",
+    # pokemon = {
+    #         "pokemon" : {
+    #             "name": "Unown",
+    #             "type1": "Psychic",
+    #             "type2": None
+    #         },
     #         "encounter_method": {
     #             "method": "Random Encounter",
     #             "time_of_day": "Anytime",
-    #             "requisite": "None",
-    #             "rarity": "Common"
+    #             "requisite": None,
+    #             "chance" : "100%"
     #         },
-    #         "game_version": "Both",
     #         "location": {
-    #             "name": "Route 201",
-    #             "area_anchor": "Main Area"
+    #             "name": key,
+    #             "area_anchor": anchor_name,
+    #             "game_version": "BDSP"
     #         },
-    #         "type": [
-    #             "Normal",
-    #             "Flying"
-    #         ],
-    #         "chance": "50%",
-    #         "level": "2 - 3"
     #     }
     tables.pop(0)
     table_count = len(tables)
@@ -338,7 +389,6 @@ def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
         # If table after getting encounter_requisite
         if (table_index - 1) % 3 == 0:
 
-
             rows = table.find_all("tr")
             # print(rows[0])
             encounter_method = grabEncounterMethod(rows[0])
@@ -351,7 +401,7 @@ def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
             NUM_POKEMON_ROWS = len(rows) // NUM_INFO_ROWS_PER_POKEMON
 
             for i in range(NUM_POKEMON_ROWS):
-                game_version = "Brilliant Diamond"
+                game_version = [34]
                 pokemon_row_list = []
                 start = i * NUM_INFO_ROWS_PER_POKEMON
                 excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON
@@ -360,7 +410,7 @@ def processGrandUndergroundTables(tables, anchor_pairs, pokemon_in_table_list):
                 # if table_index == 1:
                     # print(pokemon_row_list)
                 if table_index + 1 < table_count:
-                    game_version = "Shining Pearl"
+                    game_version = [35]
                     next_table_rows = tables[table_index + 1].find_all("tr")
                     start = i * NUM_INFO_ROWS_PER_POKEMON + 1
                     excludedEnd = i * NUM_INFO_ROWS_PER_POKEMON + NUM_INFO_ROWS_PER_POKEMON  + 1
@@ -381,23 +431,23 @@ def processSolaceonRuinsTables(anchor_pairs, pokemon_in_table_list, key):
         anchor_name, anchor_value = anchor_pair
 
         pokemon = {
-            "name": "Unown",
+            "pokemon" : {
+                "national_dex_id": 201,
+                "rvId": 1
+            },
             "encounter_method": {
                 "method": "Random Encounter",
                 "time_of_day": "Anytime",
-                "requisite": "None",
-                "rarity": "Common"
+                "item_needed": None,
+                "requisite": None,
+                "chance": "100%"
             },
-            "game_version": "Both",
             "location": {
                 "name": key,
-                "area_anchor": anchor_name
+                "area_anchor": anchor_name,
+                "region": "Sinnoh",
+                "game_version": [34, 35],
             },
-            "type": [
-                "Psychic"
-            ],
-            "chance": "100%",
-            "level": "14 - 25"
         }
 
         pokemon_in_table_list.append(pokemon)

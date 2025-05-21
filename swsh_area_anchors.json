@@ -1,0 +1,100 @@
+{
+    "Route 2": {
+        "anchors": {
+            "Main Area": 10,
+            "Lake": 4,
+            "Lakeside": 10
+        }
+    },
+    "Route 8": {
+        "anchors": {
+            "Main Area": 8,
+            "Steamdrift Way": 6
+        }
+    },
+    "Route 9": {
+        "anchors": {
+            "Main Area": 12,
+            "Circhester Bay": 14,
+            "Outer Spikemuth": 34
+        }
+    },
+    "Route 10": {
+        "anchors": {
+            "Winter Hill Station": 6,
+            "Main Area": 8
+        }
+    },
+    "Energy Plant": {
+        "anchors": {
+            "Plant": 0,
+            "Tower Summit": 1
+        }
+    },
+    "Giant's Cap": {
+        "anchors": {
+            "Main Area": 86,
+            "Area 2": 30,
+            "Area 3": 28
+        }
+    },
+    "Giant's Mirror": {
+        "anchors": {
+            "Main Area": 124,
+            "Area 2": 28
+        }
+    },
+    "Hulbury": {
+        "anchors": {
+            "Main Area": 2,
+            "Gym": 0,
+            "Stadium": 0
+        }
+    },
+    "Motostoke": {
+        "anchors": {
+            "Main Area": 2,
+            "Gym": 2,
+            "Stadium": 0
+        }
+    },
+    "Rolling Fields": {
+        "anchors": {
+            "Main Area": 102,
+            "Area 2": 28
+        }
+    },
+    "Slumbering Weald": {
+        "anchors": {
+            "Main Area": 8,
+            "Deep": 10,
+            "Gravesite": 0
+        }
+    },
+    "South Lake Miloch": {
+        "anchors": {
+            "Main Area": 104,
+            "Area 2": 28
+        }
+    },
+    "Stony Wilderness": {
+        "anchors": {
+            "Main Area": 82,
+            "Area 2": 28,
+            "Area 3": 28
+        }
+    },
+    "Turffield": {
+        "anchors": {
+            "Main Area": 2,
+            "Gym": 0,
+            "Stadium": 0
+        }
+    },
+    "Stepping-Stone Sea": {
+        "anchors": {
+            "Main Area": 44,
+            "Area 2": 22
+        }
+    }
+}

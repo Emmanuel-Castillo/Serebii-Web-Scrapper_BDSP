@@ -1,0 +1,120 @@
+{
+    "Route 204": {
+        "anchors": {
+            "South": 16,
+            "North": 8
+        }
+    },
+    "Route 205": {
+        "anchors": {
+            "South": 18,
+            "North": 18
+        }
+    },
+    "Route 206": {
+        "anchors": {
+            "Main Area": 16,
+            "Cycling Road": 0
+        }
+    },
+    "Route 210": {
+        "anchors": {
+            "South": 14,
+            "North": 22,
+            "Cafe Cabin": 0
+        }
+    },
+    "Route 211": {
+        "anchors": {
+            "West": 8,
+            "East": 14
+        }
+    },
+    "Route 212": {
+        "anchors": {
+            "North": 22,
+            "South": 22
+        }
+    },
+    "Battle Park": {
+        "anchors": {
+            "Main Area": 0,
+            "Battle Tower": 0
+        }
+    },
+    "Canalave City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Eterna City": {
+        "anchors": {
+            "Main Area": 8,
+            "Gym": 0
+        }
+    },
+    "Eterna Galactic Building": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "4F": 0,
+            "Rotom Room": 0
+        }
+    },
+    "Fuego Ironworks": {
+        "anchors": {
+            "Main Area": 20,
+            "Inside": 0
+        }
+    },
+    "Galactic Warehouse": {
+        "anchors": {
+            "Entrance": 0,
+            "B1F": 0,
+            "1F": 0,
+            "2F": 0,
+            "3F": 0
+        }
+    },
+    "Grand Underground": {
+        "anchors": {
+            "Main Area": 1,
+            "Spacious Cave": 21,
+            "Grassland Cave": 18,
+            "Fountainspring Cave": 21,
+            "Rocky Cave": 15,
+            "Volcanic Cave": 15,
+            "Swampy Cave": 21,
+            "Dazzling Cave": 18,
+            "Whiteout Cave": 18,
+            "Icy Cave": 15,
+            "Riverbank Cave": 21,
+            "Sandsear Cave": 15,
+            "Still-Water Cavern": 21,
+            "Sunlit Cavern": 18,
+            "Big Bluff Cavern": 15,
+            "Stargleam Cavern": 18,
+            "Glacial Cavern": 15,
+            "Bogsunk Cavern": 21,
+            "Typhlo Cavern": 15
+        }
+    },
+    "Ramanas Park": {
+        "anchors": {
+            "Main Area": 0,
+            "Kanto Room": 2,
+            "Johto Room": 2,
+            "Squall Room": 2,
+            "Rainbow Room": 2,
+            "Discovery Room": 2,
+            "Soul Room": 2,
+            "Oceanic Room": 2,
+            "Tectonic Room": 2,
+            "Stratospheric Room": 2,
+            "Genome Room": 2,
+            "Distortion Room": 0
+        }
+    }
+}

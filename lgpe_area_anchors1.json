@@ -1,0 +1,200 @@
+{
+    "Route 2": {
+        "anchors": {
+            "South": 0,
+            "North": 0,
+            "null": 12
+        }
+    },
+    "Route 4": {
+        "anchors": {
+            "West": 0,
+            "East": 0,
+            "null": 13
+        }
+    },
+    "Route 20": {
+        "anchors": {
+            "East": 0,
+            "West": 0,
+            "null": 16
+        }
+    },
+    "Celadon City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 2
+        }
+    },
+    "Cerulean Cave": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "B1F": 0,
+            "null": 18
+        }
+    },
+    "Cerulean City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 3
+        }
+    },
+    "Cinnabar Island": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 1
+        }
+    },
+    "Fuchsia City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 2
+        }
+    },
+    "Indigo Plateau": {
+        "anchors": {
+            "Main Area": 0,
+            "Pokemon League": 0,
+            "null": 1
+        }
+    },
+    "Mt. Moon": {
+        "anchors": {
+            "1F": 0,
+            "B1F": 0,
+            "B2F": 0,
+            "null": 12
+        }
+    },
+    "Pewter City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 1
+        }
+    },
+    "Pok\u00e9mon Mansion": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "B1F": 0,
+            "null": 16
+        }
+    },
+    "Pok\u00e9mon Tower": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "4F": 0,
+            "5F": 0,
+            "6F": 0,
+            "7F": 0,
+            "null": 16
+        }
+    },
+    "Rock Tunnel": {
+        "anchors": {
+            "1F": 0,
+            "B1F": 0,
+            "null": 8
+        }
+    },
+    "Rocket Hideout": {
+        "anchors": {
+            "B1F": 0,
+            "B2F": 0,
+            "B3F": 0,
+            "B4F": 0,
+            "null": 0
+        }
+    },
+    "Safari Zone": {
+        "anchors": {
+            "Area 1": 0,
+            "Area 2": 0,
+            "Area 3": 0,
+            "Area 4": 0,
+            "null": 40
+        }
+    },
+    "Saffron City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "Fighting Dojo": 0,
+            "null": 2
+        }
+    },
+    "Seafoam Islands": {
+        "anchors": {
+            "1F": 0,
+            "B1F": 0,
+            "B2F": 0,
+            "B3F": 0,
+            "B4F": 0,
+            "null": 26
+        }
+    },
+    "Silph Co.": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "4F": 0,
+            "5F": 0,
+            "6F": 0,
+            "7F": 0,
+            "8F": 0,
+            "9F": 0,
+            "10F": 0,
+            "11F": 0,
+            "null": 1
+        }
+    },
+    "SS Anne": {
+        "anchors": {
+            "1F": 0,
+            "Deck": 0,
+            "2F": 0,
+            "B1F": 0,
+            "Kitchen": 0,
+            "null": 0
+        }
+    },
+    "Tohjo Falls": {
+        "anchors": {
+            "Main Area": 0,
+            "Giovanni's Room": 0,
+            "null": 11
+        }
+    },
+    "Vermilion City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 2
+        }
+    },
+    "Victory Road": {
+        "anchors": {
+            "1F": 0,
+            "2F": 0,
+            "3F": 0,
+            "null": 14
+        }
+    },
+    "Viridian City": {
+        "anchors": {
+            "Main Area": 0,
+            "Gym": 0,
+            "null": 0
+        }
+    }
+}
